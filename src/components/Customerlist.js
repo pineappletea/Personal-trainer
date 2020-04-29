@@ -54,6 +54,9 @@ export default function Customerlist() {
     }
 
     const deleteCustomer = (url) => {
+        
+        if (window.confirm("Are you sure?")) {
+
         fetch(url,  {method: 'DELETE', 
                     headers: {'Content-Type': 'application/json' }
                 })
@@ -65,7 +68,7 @@ export default function Customerlist() {
             setMsg('Customer deleted');
         })  
         .catch(err => console.error(err))
-    }
+    }}
 
     const columns = [
         { Header: "First Name",
