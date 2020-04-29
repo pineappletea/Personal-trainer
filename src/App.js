@@ -5,24 +5,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Customerlist from './components/Customerlist';
 import Traininglist from './components/Traininglist';
 
-/*
-
-          <BrowserRouter>
-            <div>
-              <Link to="/Traininglist">Trainings </Link>{' '}
-              <Link color="inherit" href="/Traininglist" onClick={Traininglist}>Trainings</Link>
-              <Route path="/Traininglist" component={Traininglist} />
-            </div>
-          </BrowserRouter>
-
-
-           <div>
-        {section}
-      </div>
-*/
-
 function App() {
- // const [section, setSection] = useState("");
 
   return (
     <div className="App">

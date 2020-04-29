@@ -8,11 +8,6 @@ export default function Traininglist() {
     const [trainings, setTrainings] = useState([]);
     var moment = require('moment');
     moment().format();
-  /*  const testmoment = moment("2020-04-30T15:45:03.007+0000")
-    .local()
-    .format('MMMM Do YYYY, h:mm:ss a');
-
-*/
 
     useEffect(() => {
         getCustomers();
@@ -26,6 +21,7 @@ export default function Traininglist() {
             )
         .catch(err => console.error(err))
     }
+    
     const convertTime = (time) => {
         return moment(time).local().format('MMMM Do YYYY, h:mm:ss a')
     }
