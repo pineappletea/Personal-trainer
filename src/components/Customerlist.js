@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import Button from '@material-ui/core/Button';
 import ReactTable from 'react-table-v6'
 import 'react-table-v6/react-table.css'
 import Editcustomer from './Editcustomer'
@@ -52,6 +53,20 @@ export default function Customerlist() {
         .catch(err => console.error(err))
     }
 
+    const deleteCustomer = (url) => {
+        fetch(url,  {method: 'DELETE', 
+                    headers: {'Content-Type': 'application/json' }
+                })
+        .then(_ => {
+            getCustomers()}
+        )
+        .then(_ => { 
+            setOpen(true)
+            setMsg('Customer deleted');
+        })  
+        .catch(err => console.error(err))
+    }
+
     const columns = [
         { Header: "First Name",
         accessor: "firstname" 
@@ -75,6 +90,8 @@ export default function Customerlist() {
         accessor: "postcode" 
         },
         {   Cell: row => (<Editcustomer customer={row.original} updateCustomer={updateCustomer} />)
+        },
+        {   Cell: row => ( <Button color="secondary" size="small" onClick={() => deleteCustomer(row.original.links[0].href)}>Delete</Button> )
         }
     ]
     
