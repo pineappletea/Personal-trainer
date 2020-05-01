@@ -17,8 +17,7 @@ export default function Traininglist() {
     }, [])
     const handleClose = () =>{
         setOpen(false);
-
-    }
+    } 
     const getTrainings = () => {
         fetch("https://customerrest.herokuapp.com/api/trainings")
         .then (response => response.json())
@@ -26,6 +25,7 @@ export default function Traininglist() {
             data => setTrainings(data.content)
 
             )
+        
         .catch(err => console.error(err))
     }
     
@@ -88,5 +88,4 @@ export default function Traininglist() {
             <ReactTable defaultPageSize={20} filterable={true} data={trainings} columns={columns} />
         </div>
     )
-
 }

@@ -11,7 +11,6 @@ export default function Customerlist() {
     const [customers, setCustomers] = useState([]);
     const [msg, setMsg] = useState('');
     const [open, setOpen] = useState(false);
-    const [newTraining, setNewTraining] = useState([]);
 
 
     useEffect(() => {
