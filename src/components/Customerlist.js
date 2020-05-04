@@ -6,6 +6,7 @@ import Editcustomer from './Editcustomer'
 import Addcustomer from './Addcustomer'
 import Snackbar from '@material-ui/core/Snackbar'
 import Createtraining from './Createtraining'
+// import getCustomers from './Functions'
 
 export default function Customerlist() {
     const [customers, setCustomers] = useState([]);
@@ -14,20 +15,20 @@ export default function Customerlist() {
 
 
     useEffect(() => {
-        getCustomers();
+        setCustomers(getCustomers());
     }, [])
     const handleClose = () =>{
         setOpen(false);
 
     }
-
+    
     const getCustomers = () => {
         fetch("https://customerrest.herokuapp.com/api/customers")
             .then(response => response.json())
             .then(data => setCustomers(data.content))
             .catch(err => console.error(err))
     }
-
+    
     // function gets passed as a prop to editcustomer
     const updateCustomer = (url, customer) => {
         fetch(url, {
