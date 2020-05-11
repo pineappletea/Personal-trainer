@@ -29,7 +29,7 @@ export default function Charts() {
     groupedTrainings = _.groupBy(trainings, 'activity')
     let i = 0;
     // Convert Arrays of Trainings-objects to an Array of Objects containing totals and activity title
-    for (const activity in groupedTrainings) {
+    for (let activity in groupedTrainings) {
      barArray[i] = {
        activity: activity,
        total: _.sumBy(groupedTrainings[activity], 'duration')
