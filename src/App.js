@@ -5,6 +5,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Customerlist from './components/Customerlist';
 import Traininglist from './components/Traininglist';
 import Trainingcalendar from "./components/Trainingcalendar"
+import Charts from './components/Charts.js'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
             <Link color="inherit" href="/Traininglist" onClick={Traininglist}>Trainings</Link>
             <Link color="inherit" href="/Customerlist" onClick={Customerlist}>Customers</Link>
             <Link color="inherit" href="/Calendar" onClick={Trainingcalendar}>Calendar</Link>
+            <Link color="inherit" href="/Charts" onClick={Charts}>Charts</Link>
           </Breadcrumbs>
           </Typography>
 
@@ -29,6 +31,7 @@ function App() {
       <Route path="/Traininglist" component={Traininglist} />
       <Route path="/Customerlist" component={Customerlist} />
       <Route path="/Calendar" component={Trainingcalendar} />
+      <Route path="/Charts" component={Charts} />
       </BrowserRouter>
     </div>
 
