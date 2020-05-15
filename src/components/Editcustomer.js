@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -7,33 +7,35 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 
-export default function Editcustomer(props) { 
-    
-    const [customer, setCustomer] = useState({firstname: '', lastname: "", email: "", phone: "", streetaddress: "", city: "", postcode:""})
-    const [open, setOpen] = useState(false)
+export default function Editcustomer(props) {
 
-    const inputChanged = (event) => {
-        setCustomer({...customer, [event.target.name]: event.target.value});
-    }
+  const [customer, setCustomer] = useState({ firstname: '', lastname: "", email: "", phone: "", streetaddress: "", city: "", postcode: "" })
+  const [open, setOpen] = useState(false)
 
-    const handleClose = () => {
-        props.updateCustomer(props.customer.links[0].href, customer);
-        setOpen(false);
-    }
+  const inputChanged = (event) => {
+    setCustomer({ ...customer, [event.target.name]: event.target.value });
+  }
 
-    const handleCancel = () => {
-        setOpen(false);
-    }
+  const handleClose = () => {
+    props.updateCustomer(props.customer.links[0].href, customer);
+    setOpen(false);
+  }
 
-    const handleClickOpen = () => {
-        setCustomer({firstname: props.customer.firstname, lastname: props.customer.lastname, email: props.customer.email, 
-          phone: props.customer.phone, streetaddress: props.customer.streetaddress, city: props.customer.city, postcode: props.customer.postcode} )
-          setOpen(true);
-      } 
+  const handleCancel = () => {
+    setOpen(false);
+  }
 
-    return (
-        <div>
-        <Button size="small"  color="primary" onClick={handleClickOpen}>
+  const handleClickOpen = () => {
+    setCustomer({
+      firstname: props.customer.firstname, lastname: props.customer.lastname, email: props.customer.email,
+      phone: props.customer.phone, streetaddress: props.customer.streetaddress, city: props.customer.city, postcode: props.customer.postcode
+    })
+    setOpen(true);
+  }
+
+  return (
+    <div>
+      <Button size="small" color="primary" onClick={handleClickOpen}>
         Edit
       </Button>
 
@@ -52,7 +54,7 @@ export default function Editcustomer(props) {
             label="First name"
             fullWidth
           />
-        <TextField
+          <TextField
             autoFocus
             margin="dense"
             id="lastname"
@@ -62,7 +64,7 @@ export default function Editcustomer(props) {
             label="Last name"
             fullWidth
           />
-                  <TextField
+          <TextField
             autoFocus
             margin="dense"
             id="email"
@@ -72,7 +74,7 @@ export default function Editcustomer(props) {
             label="Email"
             fullWidth
           />
-                  <TextField
+          <TextField
             autoFocus
             margin="dense"
             id="phone"
@@ -82,7 +84,7 @@ export default function Editcustomer(props) {
             label="Phone numner"
             fullWidth
           />
-                  <TextField
+          <TextField
             autoFocus
             margin="dense"
             id="streetaddress"
@@ -92,7 +94,7 @@ export default function Editcustomer(props) {
             label="Streetaddress"
             fullWidth
           />
-                  <TextField
+          <TextField
             autoFocus
             margin="dense"
             id="city"
@@ -115,7 +117,7 @@ export default function Editcustomer(props) {
 
 
         </DialogContent>
-        
+
         <DialogActions>
           <Button onClick={handleCancel} color="primary">
             Cancel
@@ -127,6 +129,6 @@ export default function Editcustomer(props) {
       </Dialog>
 
 
-        </div>
-    )
+    </div>
+  )
 }
